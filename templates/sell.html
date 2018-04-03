@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/bootstrap-imgupload.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <title>Sell</title>
+    <style>
+        img {
+            max-width: 180px;
+        }
+
+        input[type=file] {
+            padding: 10px;
+        }
+
+        body, html {
+            height: 100%;
+            background-repeat: no-repeat;
+            background-color: #d3d3d3;
+            font-family: 'Oxygen', sans-serif;
+        }
+
+        .main {
+            margin-top: 70px;
+        }
+
+        h1.title {
+            font-size: 50px;
+            font-family: 'Passion One', cursive;
+            font-weight: 400;
+        }
+
+        hr {
+            width: 10%;
+            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-bottom: 15px;
+        }
+
+        input,
+        input::-webkit-input-placeholder {
+            font-size: 11px;
+            padding-top: 3px;
+        }
+
+        .main-login {
+            background-color: #fff;
+            /* shadows and rounded borders */
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-center {
+            margin-top: 30px;
+            margin: 0 auto;
+            max-width: 630px;
+            padding: 40px 40px;
+        }
+
+        .login-button {
+            margin-top: 5px;
+        }
+
+        .login-register {
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container" style="padding-bottom:60px;">
+        <div class="row main">
+            <div class="panel-heading">
+                <div class="panel-title text-center">
+                    <h1 class="title">Submit a Free Classified Ad</h1>
+                    <hr />
+                </div>
+            </div>
+            <div class="main-login main-center">
+                <form class="form-horizontal" method="POST" action="/sell" onsubmit="return validate()">
+                    <div class="form-group">
+                        <label for="usr" class="cols-sm-2 control-label">Product Name:</label>
+                        <input type="text" name="itemname" class="form-control" id="usr">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd" class="cols-sm-2 control-label">Category:</label>
+                        <input type="text" name="catname" class="form-control" id="pwd">
+                    </div>
+                    <div class="form-group">
+                        <label for="pr" class="cols-sm-2 control-label">Price:</label>
+                        <input type="text" name="price" class="form-control" id="pr">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment" class="cols-sm-2 control-label">Description:</label>
+                        <textarea class="form-control" name="descr" rows="5" id="comment"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="cols-sm-2 control-label">Upload images:</label>
+                        <input type='file' name="imag" onchange="readURL(this);" />
+                        <img id="blah" src="http://placehold.it/180" alt="your image" />
+                    </div>
+
+                    <div class="form-group ">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
